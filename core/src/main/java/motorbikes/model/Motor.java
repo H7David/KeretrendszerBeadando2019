@@ -152,5 +152,22 @@ public class Motor {
     public void setAllapot(Allapot allapot) {
         this.allapot = allapot;
     }
+    @Override
+    public String toString() {
+        return "Auto{" +
+                "marka='" + marka + '\'' +
+                ", tipus='" + tipus + '\'' +
+                ", rendszam='" + rendszam + '\'' +
+                ", uzembehelyezes_datuma=" + uzembehelyezes_datuma +
+                ", loero=" + loero +
+                ", suly=" + suly +
+                ", sebessegek_szama=" + sebessegek_szama +
+                ", szallithatoszemelyek_szsma=" + szalithatoszemelyek_szama +
+                ", kerek_atmero=" + kerek_atmero +
+                ", evjarat=" + evjarat +
+                ", szinkod='" + szinkod + '\'' +
+                ", allapot=" + allapot +
+                '}';
+    }
 
 }
