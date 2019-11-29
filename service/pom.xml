@@ -12,4 +12,14 @@
     <artifactId>service</artifactId>
 
 
+    <dependencies>
+    <dependency>
+
+        <groupId>keretrendszerBeadando</groupId>
+        <artifactId>core</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+    </dependencies>
+
+
 </project>
