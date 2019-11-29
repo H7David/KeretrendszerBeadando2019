@@ -1,7 +1,8 @@
 package motorbikes.model;
 
 import motorbikes.exception.RosszRendszam;
-
+import motorbikes.exception.RosszEvjarat;
+import motorbikes.exception.RosszDatum;
 import java.time.LocalDate;
 
 public class Motor {
@@ -33,6 +34,24 @@ public class Motor {
         return marka;
     }
 
+    public Motor(String marka, String tipus, String rendszam,
+                 LocalDate uzembehelyezes_datuma, int loero, int suly, int sebessegek_szama,
+                 int szalithatoszemelyek_szama, int kerek_atmero, int evjarat, String szinkod,
+                 Allapot allapot)throws RosszDatum , RosszRendszam, RosszEvjarat {
+        this.marka = marka;
+        this.tipus = tipus;
+       setRendszam(rendszam);
+        setUzembehelyezes_datuma(uzembehelyezes_datuma);
+        this.loero = loero;
+        this.suly = suly;
+        this.sebessegek_szama = sebessegek_szama;
+        this.szalithatoszemelyek_szama = szalithatoszemelyek_szama;
+        this.kerek_atmero = kerek_atmero;
+        setEvjarat(evjarat);
+        this.szinkod = szinkod;
+        this.allapot = allapot;
+    }
+
     public void setMarka(String marka) {
         this.marka = marka;
     }
@@ -62,7 +81,9 @@ public class Motor {
         return uzembehelyezes_datuma;
     }
 
-    public void setUzembehelyezes_datuma(LocalDate uzembehelyezes_datuma) {
+    public void setUzembehelyezes_datuma(LocalDate uzembehelyezes_datuma) throws RosszDatum {
+        if(uzembehelyezes_datuma.isBefore(LocalDate.MIN) ||uzembehelyezes_datuma.isAfter(LocalDate.now())){
+            throw new RosszDatum(uzembehelyezes_datuma.toString());}
         this.uzembehelyezes_datuma = uzembehelyezes_datuma;
     }
     public int getLoero() {
@@ -109,7 +130,10 @@ public class Motor {
         return evjarat;
     }
 
-    public void setEvjarat(int evjarat) {
+    public void setEvjarat(int evjarat)throws RosszEvjarat  {
+            if(evjarat<0 || evjarat> LocalDate.now().getYear()){
+                throw new RosszEvjarat(String.valueOf(evjarat));
+            }
         this.evjarat = evjarat;
     }
 

@@ -6,6 +6,9 @@ import motorbikes.model.Motor;
 import java.util.Collection;
 
 
+
+
+
 public interface MotorService {
 
     Collection<Motor> listAllMotors();
