@@ -8,8 +8,10 @@ import motorbikes.model.Motor;
 import java.util.Collection;
 
 public interface MotorDAO {
-Collection<Motor> readAllMotors();
-Motor readMotor(String rendszam) throws RosszRendszam, MotorNemTalalhato;
+
+     Collection<Motor> readAllMotors();
+
+     Motor readMotor(String rendszam) throws RosszRendszam, MotorNemTalalhato;
 
      void insertMotor(Motor motor) throws RendszamMarFoglalt, RosszRendszam;
 
