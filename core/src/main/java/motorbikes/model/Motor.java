@@ -4,6 +4,7 @@ import motorbikes.exception.RosszRendszam;
 import motorbikes.exception.RosszEvjarat;
 import motorbikes.exception.RosszDatum;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Motor {
 
@@ -19,13 +20,6 @@ public class Motor {
     private int evjarat;
     private String szinkod;
     private Allapot allapot;
-
-
-
-
-
-
-
 
 
     public Motor(){}
@@ -169,5 +163,26 @@ public class Motor {
                 ", allapot=" + allapot +
                 '}';
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Motor motor = (Motor) o;
+        return loero == motor.loero &&
+                suly == motor.suly &&
+                sebessegek_szama == motor.sebessegek_szama&&
+                szalithatoszemelyek_szama == motor.szalithatoszemelyek_szama &&
+                kerek_atmero == motor.kerek_atmero &&
+                evjarat == motor.evjarat &&
+                Objects.equals(marka, motor.marka) &&
+                Objects.equals(tipus, motor.tipus) &&
+                Objects.equals(rendszam, motor.rendszam) &&
+                Objects.equals(uzembehelyezes_datuma, motor.uzembehelyezes_datuma) &&
+                Objects.equals(szinkod, motor.szinkod) &&
+                allapot == motor.allapot;
+    }
 
+    @Override
+    public int hashCode() { return Objects.hash(marka, tipus, rendszam, uzembehelyezes_datuma, loero, suly,
+            sebessegek_szama , szalithatoszemelyek_szama , kerek_atmero, evjarat, szinkod, allapot); }
 }
