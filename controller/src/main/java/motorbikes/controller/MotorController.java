@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+
 @Controller
 public class MotorController {
 
@@ -33,10 +35,11 @@ public class MotorController {
 
     @RequestMapping(value ="addMotor", method = RequestMethod.POST , consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public void addAuto(@RequestBody Motor motor) throws RosszDatum, RosszEvjarat, RosszRendszam, RendszamMarFoglalt { service.addMotor(motor); }
+    public void addMotor(@RequestBody Motor motor) throws RosszDatum, RosszEvjarat, RosszRendszam, RendszamMarFoglalt { service.addMotor(motor); }
 
 
-
-
+    @RequestMapping(value = "/listMotor", method = RequestMethod.GET)
+    @ResponseBody
+    public Collection<Motor> listMotor(){ return service.listAllMotors(); }
 
 }

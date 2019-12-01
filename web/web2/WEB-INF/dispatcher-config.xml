@@ -18,7 +18,7 @@
 
 
     <bean id="motorDAOJSON" class="keretrendszerBeadando.dao.impl.json.MotorDAOJSON " scope="singleton">
-        <constructor-arg name="filepath" value="hetfo.json"/>
+        <constructor-arg name="filepath" value="motorok.json"/>
     </bean>
 
     <bean class="motorbikes.service.impl.MotorServiceImpl">
